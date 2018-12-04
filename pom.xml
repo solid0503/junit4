@@ -191,53 +191,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <!--
-                Updates Version#id().
-                -->
-                <groupId>com.google.code.maven-replacer-plugin</groupId>
-                <artifactId>replacer</artifactId>
-                <version>1.5.3</version>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <ignoreMissingFile>false</ignoreMissingFile>
-                    <file>${project.build.sourceDirectory}/junit/runner/Version.java.template</file>
-                    <outputFile>${project.build.sourceDirectory}/junit/runner/Version.java</outputFile>
-                    <regex>false</regex>
-                    <token>@version@</token>
-                    <value>${project.version}</value>
-                </configuration>
-            </plugin>
-            <plugin><!-- Using jdk 1.5.0_22, package-info.java files are compiled correctly. -->
-                <!--
-                java compiler plugin forked in extra process
-                -->
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <source>${jdkVersion}</source>
-                    <target>${jdkVersion}</target>
-                    <testSource>${jdkVersion}</testSource>
-                    <testTarget>${jdkVersion}</testTarget>
-                    <compilerVersion>1.5</compilerVersion>
-                    <showDeprecation>true</showDeprecation>
-                    <showWarnings>true</showWarnings>
-                    <debug>true</debug>
-                    <fork>true</fork>
-                    <compilerArgs>
-                        <arg>-Xlint:unchecked</arg>
-                    </compilerArgs>
-                    <maxmem>128m</maxmem>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
